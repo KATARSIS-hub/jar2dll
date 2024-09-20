@@ -17,7 +17,7 @@ native_files := main.cpp injector.cpp utils.cpp
 
 build-library: convert-injector convert-jar
 	@echo "Building output dll"
-	@cd native-src && C:\MinGW\bin\g++.exe -O2 $(native_files) -shared -Wl,--dll -Wl,--exclude-all-symbols -static \
+	@cd native-src && x86_64-w64-mingw32-g++ -O2 $(native_files) -shared -Wl,--dll -Wl,--exclude-all-symbols -static \
 		 -static-libgcc -static-libstdc++ -luser32 -o ../output.dll
 
 build: clean build-library
